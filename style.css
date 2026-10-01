@@ -705,63 +705,85 @@ button {
   width: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid var(--border-light);
-  background: #F8F5F0;
+  border: 1.5px solid var(--brand-sand);
+  background: #FFFFFF;
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 16px rgba(74, 52, 35, 0.08);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-map-preview-wrap:hover {
+  box-shadow: 0 6px 22px rgba(74, 52, 35, 0.15);
 }
 
 .room-map-img {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.2s ease;
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 0.25s ease;
 }
 
+/* Crystal-clear non-blocking overlay: No dark fog! */
 .map-hover-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(46, 34, 25, 0.45);
+  background: transparent;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 10px;
+  pointer-events: none;
+}
+
+.map-corner-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
+  gap: 5px;
+  background: rgba(46, 34, 25, 0.88);
   color: #FFFFFF;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  backdrop-filter: blur(2px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease;
+  pointer-events: auto;
 }
 
-.room-map-preview-wrap:hover .map-hover-overlay,
-.room-map-preview-wrap:focus .map-hover-overlay {
-  opacity: 1;
-}
-
-/* Always show subtle affordance on mobile */
-@media (hover: none) {
-  .map-hover-overlay {
-    opacity: 0.85;
-    background: linear-gradient(to top, rgba(46, 34, 25, 0.8) 0%, rgba(46, 34, 25, 0.1) 60%);
-    justify-content: flex-end;
-    padding-bottom: 16px;
-  }
-}
-
-.map-zoom-icon {
-  width: 28px;
-  height: 28px;
+.map-zoom-icon-small {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .overlay-text {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .room-map-preview-wrap:hover .room-map-img {
+    transform: scale(1.015);
+  }
+  .room-map-preview-wrap:hover .map-corner-pill {
+    background: var(--brand-brown);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 52, 35, 0.35);
+  }
 }
 
 .full-map-btn {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 12px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
