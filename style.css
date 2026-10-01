@@ -1,0 +1,1237 @@
+/* ==========================================================================
+   CHINCHU STAY — GUEST GUIDE
+   Boutique Hotel Style Sheet (Pure CSS)
+   Optimized for Smartphone Viewports & Desktop Screens
+   ========================================================================== */
+
+:root {
+  --bg-canvas: #FAF7F2;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #F4EFEA;
+  --bg-highlight: #F5EEE6;
+  
+  --text-primary: #2E2219;
+  --text-secondary: #6B5B4F;
+  --text-muted: #8E7D70;
+  
+  --border-light: rgba(162, 138, 118, 0.2);
+  --border-medium: rgba(162, 138, 118, 0.4);
+  
+  --brand-brown: #4A3423;
+  --brand-brown-dark: #352316;
+  --brand-olive: #495E3E;
+  --brand-terracotta: #944C2A;
+  --brand-sand: #D5C5B5;
+  
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --shadow-sm: 0 2px 8px -1px rgba(46, 34, 25, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(46, 34, 25, 0.08);
+  --shadow-lg: 0 16px 36px -6px rgba(46, 34, 25, 0.12);
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+}
+
+/* CSS Reset & Core Defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Utility font classes */
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Page Frame: max 680px for ultimate smartphone/reading elegance */
+.page-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ==========================================================================
+   HEADER & BRAND LOCKUP
+   ========================================================================== */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px 12px;
+  gap: 18px;
+}
+
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-wrapper {
+  width: 130px;
+  height: 130px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(74, 52, 35, 0.12);
+  border: 1.5px solid var(--border-light);
+  overflow: hidden;
+  margin-bottom: 6px;
+  padding: 6px;
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--brand-brown-dark);
+  line-height: 1.2;
+}
+
+.brand-guide-badge {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--brand-terracotta);
+  text-transform: uppercase;
+}
+
+.brand-address {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* Header Welcome Box */
+.header-welcome-box {
+  width: 100%;
+  background: linear-gradient(135deg, #F5EEE6 0%, #EFE8DE 100%);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+}
+
+.welcome-heading {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--brand-brown-dark);
+  margin-bottom: 2px;
+}
+
+.welcome-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   LANGUAGE SELECTOR (5 Languages, No reload, Persistent)
+   ========================================================================== */
+.lang-selector-container {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1.5px solid var(--brand-sand);
+  border-radius: 16px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 16px rgba(74, 52, 35, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-selector-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--brand-terracotta);
+  text-transform: uppercase;
+}
+
+.lang-globe-icon {
+  font-size: 14px;
+}
+
+.lang-selector {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+  background: #F8F5F0;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(74, 52, 35, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  color: var(--brand-brown-dark);
+  background: #EFE8DE;
+  border-color: var(--brand-sand);
+  transform: translateY(-1px);
+}
+
+.lang-btn.active {
+  background: var(--brand-brown);
+  color: #FFFFFF;
+  border-color: var(--brand-brown);
+  box-shadow: 0 3px 10px rgba(74, 52, 35, 0.28);
+  transform: translateY(-1px);
+}
+
+.lang-btn .flag {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   QUICK NAVIGATION TILES
+   ========================================================================== */
+.quick-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+@media (min-width: 520px) {
+  .quick-nav {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.nav-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  text-decoration: none;
+}
+
+.nav-card:hover, .nav-card:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-sand);
+}
+
+.nav-icon {
+  font-size: 20px;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ==========================================================================
+   CONTENT SECTIONS & CARDS
+   ========================================================================== */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: box-shadow 0.2s ease;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--brand-olive);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.badge-icon {
+  font-size: 13px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.prose p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   SECTION 1: WELCOME & CHECK TIMES
+   ========================================================================== */
+.check-times-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.time-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 14px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.time-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--brand-terracotta);
+}
+
+.time-value {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+}
+
+/* ==========================================================================
+   SECTION 2: GATE INFORMATION
+   ========================================================================== */
+.code-box {
+  background: linear-gradient(180deg, #FBF8F5 0%, #F5EEE6 100%);
+  border: 1.5px dashed var(--brand-sand);
+  border-radius: var(--radius-md);
+  padding: 20px 16px;
+  text-align: center;
+  margin: 14px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.code-box-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.code-display {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--brand-terracotta);
+  line-height: 1.1;
+  user-select: all;
+  text-shadow: 0 1px 2px rgba(148, 76, 42, 0.1);
+}
+
+/* Image Slots */
+.image-slot-container {
+  width: 100%;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.image-frame {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gate-image-frame {
+  aspect-ratio: 1111 / 1416;
+  max-height: 600px;
+}
+
+.room-image-frame {
+  aspect-ratio: 1371 / 1147;
+  max-height: 480px;
+}
+
+.section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.image-caption {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.18s ease;
+  min-height: 48px;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--brand-brown);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover, .btn-primary:active {
+  background: var(--brand-brown-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--bg-subtle);
+  color: var(--brand-brown-dark);
+  border: 1px solid var(--border-medium);
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+  background: #EFE8DE;
+  transform: translateY(-1px);
+}
+
+.copy-btn {
+  width: 100%;
+  max-width: 280px;
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   SECTION 3: WI-FI
+   ========================================================================== */
+.wifi-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  text-align: center;
+}
+
+.wifi-network-row, .wifi-password-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.meta-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+.wifi-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+}
+
+.wifi-pass-display {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--brand-olive);
+  line-height: 1.2;
+  user-select: all;
+}
+
+/* ==========================================================================
+   SECTION 4: ROOM INFORMATION & QUICK ACTIONS
+   ========================================================================== */
+.hotline-contact-box {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hotline-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hotline-number {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+  letter-spacing: 1px;
+}
+
+.action-buttons-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.btn-action {
+  padding: 10px 8px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.btn-call {
+  background: var(--brand-brown);
+  color: #FFFFFF;
+}
+
+.btn-call:hover {
+  background: var(--brand-brown-dark);
+}
+
+.btn-zalo {
+  background: #0068FF;
+  color: #FFFFFF;
+}
+
+.btn-zalo:hover {
+  background: #0056D6;
+}
+
+.zalo-tag {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+}
+
+.btn-whatsapp:hover {
+  background: #1EBE5D;
+}
+
+/* ==========================================================================
+   SECTION 5: ROOM MAP & 3 ZONES
+   ========================================================================== */
+.zones-highlight-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.zone-pill {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 8px 6px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.zone-name {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+}
+
+.zone-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.room-map-preview-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  background: #F8F5F0;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.room-map-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.map-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 34, 25, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #FFFFFF;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  backdrop-filter: blur(2px);
+}
+
+.room-map-preview-wrap:hover .map-hover-overlay,
+.room-map-preview-wrap:focus .map-hover-overlay {
+  opacity: 1;
+}
+
+/* Always show subtle affordance on mobile */
+@media (hover: none) {
+  .map-hover-overlay {
+    opacity: 0.85;
+    background: linear-gradient(to top, rgba(46, 34, 25, 0.8) 0%, rgba(46, 34, 25, 0.1) 60%);
+    justify-content: flex-end;
+    padding-bottom: 16px;
+  }
+}
+
+.map-zoom-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.overlay-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.full-map-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   SECTION 6: HOUSE RULES
+   ========================================================================== */
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(162, 138, 118, 0.14);
+}
+
+.rule-icon {
+  font-size: 18px;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.rule-content {
+  flex: 1;
+}
+
+.rule-text {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.rules-footer-note {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-terracotta);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   SECTION 7: CONTACT / NEED HELP?
+   ========================================================================== */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.contact-channels-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.contact-main-phone {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--brand-brown-dark);
+  letter-spacing: 1px;
+}
+
+.contact-buttons-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-touch {
+  width: 100%;
+  min-height: 52px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-call-primary {
+  background: var(--brand-brown);
+  color: #FFFFFF;
+}
+
+.btn-call-primary:hover {
+  background: var(--brand-brown-dark);
+}
+
+.btn-zalo-primary {
+  background: #0068FF;
+  color: #FFFFFF;
+}
+
+.btn-zalo-primary:hover {
+  background: #0056D6;
+}
+
+.zalo-badge {
+  background: #FFFFFF;
+  color: #0068FF;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.btn-whatsapp-primary {
+  background: #25D366;
+  color: #FFFFFF;
+}
+
+.btn-whatsapp-primary:hover {
+  background: #1EBE5D;
+}
+
+/* ==========================================================================
+   GITHUB PAGES EXPORT SECTION
+   ========================================================================== */
+.github-export-box {
+  background: #FBF8F3;
+  border: 1px solid var(--border-medium);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.export-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.export-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--brand-terracotta);
+}
+
+.export-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+}
+
+.export-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.btn-export {
+  background: #24292F;
+  color: #FFFFFF;
+  width: 100%;
+}
+
+.btn-export:hover {
+  background: #1B1F23;
+}
+
+.export-instructions {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.export-instructions summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--brand-brown-dark);
+}
+
+.instructions-body {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.instructions-body ol {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.instructions-body code {
+  background: var(--bg-subtle);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.instructions-body .note {
+  font-size: 12px;
+  color: var(--brand-olive);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  padding: 28px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid var(--border-light);
+  margin-top: 10px;
+}
+
+.footer-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+}
+
+.footer-address {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.footer-hotline {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.footer-hotline a {
+  font-weight: 700;
+  color: var(--brand-brown-dark);
+}
+
+.footer-closing {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATION
+   ========================================================================== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: rgba(46, 34, 25, 0.95);
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  width: 16px;
+  height: 16px;
+  color: #4ADE80;
+}
+
+/* ==========================================================================
+   FULLSCREEN ROOM MAP MODAL & ZOOM CONTROLS
+   ========================================================================== */
+.map-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-modal[hidden] {
+  display: none !important;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 14, 10, 0.88);
+  backdrop-filter: blur(4px);
+}
+
+.modal-window {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1A130D;
+  overflow: hidden;
+}
+
+.modal-header {
+  height: 56px;
+  background: rgba(30, 22, 16, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.modal-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.modal-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal-zones {
+  font-size: 11px;
+  color: #D5C5B5;
+  letter-spacing: 0.5px;
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.modal-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+
+.modal-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.modal-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.modal-btn-close {
+  background: #944C2A;
+}
+
+.modal-btn-close:hover {
+  background: #B35C33;
+}
+
+.modal-viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.modal-viewport:active {
+  cursor: grabbing;
+}
+
+.modal-canvas {
+  transform-origin: center center;
+  transition: transform 0.05s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.modal-canvas img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+}
+
+.modal-footer-hint {
+  height: 36px;
+  background: rgba(30, 22, 16, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  font-size: 12px;
+  color: #B5A495;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN TWEAKS
+   ========================================================================== */
+@media (max-width: 400px) {
+  .page-container {
+    padding: 12px 10px 30px;
+  }
+  
+  .brand-title {
+    font-size: 22px;
+  }
+
+  .code-display {
+    font-size: 34px;
+  }
+
+  .wifi-pass-display {
+    font-size: 26px;
+  }
+
+  .action-buttons-group {
+    grid-template-columns: 1fr;
+  }
+}

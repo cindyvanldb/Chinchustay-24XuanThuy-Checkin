@@ -1,0 +1,6 @@
+{
+  "name": "ChinChu Stay – Guest Guide",
+  "description": "Guest guide and accommodation handbook for guests staying at ChinChu Stay, 24 Xuan Thuy, An Khanh, Ho Chi Minh City.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
